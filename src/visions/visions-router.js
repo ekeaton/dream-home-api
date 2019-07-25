@@ -3,6 +3,7 @@ const express = require('express')
 const xss = require('xss')
 const VisionsService = require('./visions-service')
 
+
 const visionsRouter = express.Router()
 const jsonParser = express.json()
 
@@ -25,7 +26,7 @@ visionsRouter
       })
       .catch(next)
   })
-  .post(jsonParser, (req, res, next) => {
+  .post(jsonParser, (req, res, next) => { 
     const { vision_image, vision_category, vision_room, note, link } = req.body
     const newVision = { vision_image, vision_category, vision_room}
 
@@ -33,7 +34,7 @@ visionsRouter
        if (value == null) 
           return res.status(400).json({
             error: { message: `Missing '${key}' in request body` }
-          })
+          })    
     newVision.note = note;
     newVision.link = link;
 
@@ -48,7 +49,7 @@ visionsRouter
           .json(serializeVisions(vision))
       })
       .catch(next)
-  })
+    })
 
 visionsRouter
   .route('/:vision_id')
