@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 
 const visionsRouter = require('./visions/visions-router')
+const notesRouter = require('./notes/notes-router')
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.use(cors())
 app.use(helmet())
 
 app.use('/api/visions', visionsRouter)
+app.use('/api/notes', notesRouter)
 
 app.get('/', (req, res) => {
    res.send('Hello, world!')
