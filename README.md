@@ -178,7 +178,7 @@ id: Number
 id: Number
 ```
 
-#### PATCH /api/plants/user
+#### PATCH /api/notes/user
 ```
 // req.body
 {
